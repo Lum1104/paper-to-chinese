@@ -12,12 +12,13 @@ description: Download an arXiv LaTeX paper, translate it into fluent Simplified 
 - 源码包里自带 `.bbl` 时直接保留复用，无需重跑 BibTeX/Biber。
 - 如果只有 PDF、拿不到 LaTeX 源码，直接告诉用户本流程依赖源码，无法还原原版式。
 
-## 2. 就绪云电脑 TeX 环境
+## 2. 就绪云电脑 TeX 环境（首次初始化，后续复用）
 
-- 先探测环境：`which xelatex` 和 `fc-list :lang=zh`。
+- 先探测环境：`which xelatex` 和 `fc-list :lang=zh`。都命中就直接进入下一步。
+- **首次使用未安装时**：先简短告知用户需要 1~2 分钟初始化最小 TeX 环境，装好后以后复用。按权限和网络走 [references/build.md](references/build.md) 的最小化安装（**不要装 `texlive-full`**），并做好持久化（`PATH` 与字体目录）。
 - 系统里有什么中文字体就用什么（Noto CJK、Source Han、Fandol、文泉驿等皆可），不必死磕单一字体。
-- 缺引擎或字体时，按最小化原则补齐 XeLaTeX、`xeCJK` 和一款中文字体；精简镜像缺 format 或 `xeCJK` 时见 [references/build.md](references/build.md)。
 - 动手翻译前，先在导言区加上 `xeCJK` 和一句中文跑通编译，确认能正常出中文，再开始翻译。
+- 若环境彻底断网且无 TeX，完成翻译并配好 `xeCJK` 后打包源码交付给用户（可丢进 Overleaf 选 XeLaTeX 编译）。
 
 ## 3. 拆解与派发子 Agent 翻译
 

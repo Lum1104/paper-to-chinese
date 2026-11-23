@@ -1,5 +1,49 @@
 # XeLaTeX and layout troubleshooting
 
+## First-time TeX & CJK font setup (install once, reuse later)
+
+Check what is already installed before installing anything:
+
+```sh
+which xelatex
+fc-list :lang=zh
+```
+
+If both exist, skip installation. Otherwise, install a minimal working setup (avoid `texlive-full`, which is several GB and often times out):
+
+### 1. With root / `sudo` (Debian/Ubuntu)
+
+```sh
+apt-get update && apt-get install -y --no-install-recommends \
+  texlive-xetex texlive-lang-chinese texlive-latex-extra fonts-noto-cjk
+```
+
+If a specific paper needs extra packages later, add only what is missing (e.g., `texlive-science` or `texlive-publishers`).
+
+### 2. Without root (user-space TinyTeX)
+
+Install TinyTeX into `~/.TinyTeX` and persist it in `PATH` so future sessions reuse it directly:
+
+```sh
+curl -fsSL "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+```
+
+Add the printed `~/.TinyTeX/bin/<arch>` directory to `~/.bashrc` / `~/.profile`, then install `xecjk` (and any missing packages reported during compilation) via `tlmgr install xecjk`.
+
+### 3. Missing CJK fonts without root
+
+Download an open-source CJK font (such as Source Han Serif/Sans or Fandol `.otf`) into `~/.local/share/fonts` and run `fc-cache -fv` for persistent reuse. If `fc-cache` is unavailable, place the font file in the work directory and load it by path:
+
+```tex
+\setCJKmainfont[Path=./]{SourceHanSerifSC-Regular.otf}
+```
+
+### 4. Offline environment without TeX
+
+If TeX cannot be installed at all, finish the translation with `xeCJK` configured and deliver the translated source archive so the user can compile it in Overleaf with the XeLaTeX compiler.
+
+## Preamble & build helper
+
 For a normal UTF-8 project, preserve the document class and use this in the preamble after the template's fonts:
 
 ```tex
