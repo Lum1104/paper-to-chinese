@@ -1,0 +1,11 @@
+__pycache__/
+*.aux
+*.bbl
+*.blg
+*.build.txt
+*.log
+*.out
+*.toc
+*.xdv
+*.pdf
+!examples/minimal/translated.pdf

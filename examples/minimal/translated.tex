@@ -1,0 +1,28 @@
+\documentclass[twocolumn]{article}
+\usepackage{amsmath}
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK SC}
+\renewcommand{\tablename}{表}
+\title{部分给分：一个最小示例}
+\author{Example Author}
+\date{}
+\begin{document}
+\maketitle
+\section{评分规则}\label{sec:rule}
+只给有可观察证据的条目打分。当参与评分的条目不为空时，部分得分为这些条目的平均分：
+\begin{equation}
+  s = \frac{1}{n}\sum_{i=1}^{n} x_i .
+\end{equation}
+表~\ref{tab:example} 展示了两个有证据的条目。
+\begin{table}[h]
+\centering
+\caption{两个有证据的条目的得分。}\label{tab:example}
+\begin{tabular}{lr}
+条目 & 得分\\\hline
+准备 & 1\\
+验证 & 0\\
+\end{tabular}
+\end{table}
+\section{结果说明}
+本例中，没有证据的条目不参与计算。根据第~\ref{sec:rule} 节，两个已打分条目得到 $s=0.5$。
+\end{document}

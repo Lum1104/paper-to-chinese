@@ -1,0 +1,27 @@
+\documentclass[twocolumn]{article}
+\usepackage{amsmath}
+\title{A Tiny Example of Partial Credit}
+\author{Example Author}
+\date{}
+\begin{document}
+\maketitle
+\section{Scoring rule}\label{sec:rule}
+Score only items with observed evidence. The partial credit for a nonempty
+set of scored items is their mean:
+\begin{equation}
+  s = \frac{1}{n}\sum_{i=1}^{n} x_i .
+\end{equation}
+Table~\ref{tab:example} shows two observed items.
+\begin{table}[h]
+\centering
+\caption{Scores from two observed items.}\label{tab:example}
+\begin{tabular}{lr}
+Item & Score\\\hline
+Setup & 1\\
+Validation & 0\\
+\end{tabular}
+\end{table}
+\section{Interpretation}
+Items without evidence are omitted from this example's calculation.
+By Section~\ref{sec:rule}, the two observed items give $s=0.5$.
+\end{document}

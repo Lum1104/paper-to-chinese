@@ -1,0 +1,4 @@
+interface:
+  display_name: "论文翻译成中文 PDF"
+  short_description: "保留 LaTeX 论文版式，翻译并编译为中文 PDF"
+  default_prompt: "把这篇 LaTeX 论文译成中文 PDF，尽量保留原版式。"
