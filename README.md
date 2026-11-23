@@ -2,6 +2,10 @@
 
 本仓库面向 Dot、Grok Bot、Muse 这些 personal agent 个人助手，利用他们的云电脑原汁原味的翻译 ArXiv 学术论文。
 
+<p align="center">
+  <img src="assets/comparison.png" alt="Original vs Translated" width="80%" />
+</p>
+
 ## 背景
 
 读中文的时候，我们的眼睛是"扫"的：一眼下去好几行，重点自己就跳出来了。
@@ -18,10 +22,16 @@
 
 ## 安装
 
-把这个仓库的链接发给你的助手（Dot、Grok Bot、Muse 都行），说一句：
+把这个仓库的链接发给你的助手（Dot、Grok Bot、Muse 都行），说：
 
-> 帮我安装这个 skill：https://github.com/Lum1104/paper-to-chinese
+```text
+帮我安装这个 skill：https://github.com/Lum1104/paper-to-chinese
+```
 
 装好后，直接把论文链接丢给它：
 
-> 把这篇论文翻成中文 PDF：https://arxiv.org/abs/1706.03762
+```text
+把这篇论文翻成中文 PDF：https://arxiv.org/abs/1706.03762
+```
+
+<sub>首次使用会在云电脑里自动装最小 TeX 环境，多等 1~2 分钟，之后复用。</sub>
